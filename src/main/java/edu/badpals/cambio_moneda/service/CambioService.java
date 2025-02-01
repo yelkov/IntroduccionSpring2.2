@@ -65,7 +65,13 @@ public class CambioService {
             fecha = LocalDate.now().toString();
         }else{
             CambioData cambioData = getCambioData(baseCodigo, destinoCodigo, amountDouble);
-            resultadoCambio = (Double) cambioData.getRates().values().iterator().next();
+            try{
+                resultadoCambio = (Double) cambioData.getRates().values().iterator().next();
+            }catch (ClassCastException e){
+                Integer resultadoInteger = (Integer) cambioData.getRates().values().iterator().next();
+                resultadoCambio = resultadoInteger.doubleValue();
+            }
+
             tasa = amountDouble / resultadoCambio;
             fecha = cambioData.getDate();
         }

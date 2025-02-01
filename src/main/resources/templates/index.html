@@ -6,24 +6,27 @@
 </head>
 <body>
     <form th:action="@{/cambiar}" method="post">
-        <label>
-            Importe:
-            <input name="amount" type="text" placeholder="0.0"/>
-        </label>
-        <label>
-            Moneda origen:
-            <select name="base">
-                <option  th:each="moneda:${origen}" th:value="${moneda}" th:text="${moneda}"/>
-            </select>
+        <fieldset>
+            <legend>Cambio de moneda</legend>
+            <label>
+                Importe:
+                <input name="amount" type="text" placeholder="0.0"/>
+            </label>
+            <label>
+                Moneda origen:
+                <select name="base">
+                    <option  th:each="moneda:${origen}" th:value="${moneda}" th:text="${moneda}"/>
+                </select>
 
-        </label>
-        <label>
-            Moneda destino:
-            <select name="destino">
-                <option  th:each="moneda:${destino}" th:value="${moneda}" th:text="${moneda}"/>
-            </select>
-        </label>
-        <input type="submit">
+            </label>
+            <label>
+                Moneda destino:
+                <select name="destino">
+                    <option  th:each="moneda:${destino}" th:value="${moneda}" th:text="${moneda}"/>
+                </select>
+            </label>
+            <input type="submit">
+        </fieldset>
     </form>
 </body>
 </html>

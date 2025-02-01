@@ -5,8 +5,10 @@
     <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body th:object="${cambioDTO}">
-    <p th:text="'El valor de '+${cambioDTO.amount}+' '+${cambioDTO.base}+' a día '+${cambioDTO.date}+' es de '+${cambioDTO.cambio}+' '+${cambioDTO.destino}"></p>
-    <p th:text="'La tasa de cambio de 1 '+${cambioDTO.base}+' a '+${cambioDTO.destino}+' es: '+${cambioDTO.tasa}">La tasa de cambio es 1:1. </p>
-    <a th:href="@{/}">Volver</a>
+    <div class="cuadro">
+        <p>El valor de <span th:text="${cambioDTO.amount}+' '+${cambioDTO.base}"></span>  a día <span th:text="${cambioDTO.date}"></span> es de <span class="resultado" th:text="${cambioDTO.cambio} + ' ' + ${cambioDTO.destino}"></span></p>
+        <p th:text="'La tasa de cambio de 1 '+${cambioDTO.base}+' a '+${cambioDTO.destino}+' es: '+${cambioDTO.tasa}">La tasa de cambio es 1:1. </p>
+        <a th:href="@{/}">Volver</a>
+    </div>
 </body>
 </html>
