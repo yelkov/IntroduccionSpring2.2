@@ -34,7 +34,13 @@ public class CambioService {
     }
 
     private CambioData getCambioData(String base, String destino, Double amount) {
-        String url = "https://api.frankfurter.app/latest?from="+base+"&to="+destino+"&amount="+amount;
+        String url;
+        if(amount == null){
+            url = "https://api.frankfurter.app/latest?from="+base+"&to="+destino;
+        }else{
+            url = "https://api.frankfurter.app/latest?from="+base+"&to="+destino+"&amount="+amount;
+        }
+
         return restTemplate.getForObject(url, CambioData.class);
     }
 
